@@ -1,6 +1,44 @@
 <!doctype html>
 <html ng-app="myApp">
 <head>
+<style>
+
+body{
+    background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLDHQJ2sjZ_bEQfOmSQKLRY9Yk-YAsY-JAb-EujewBh-bNB1uBYw");
+    background-color:#008080;
+    line-height:150%;
+}
+label{
+    color:white;
+    text-shadow: 3px 2px blue;
+}
+div{
+    color:white;
+    font-size:100%;
+}
+    
+.column {
+  float: left;
+  width: 50%;
+  border: black;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+
+
+
+
+
+
+
+
+
 <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
 <script>
   // Initialize Firebase
@@ -25,20 +63,34 @@
 <body>
 
 <div ng-controller="chatController">
-<form novalidate class="simple-form">
-  Name: <input type="text" ng-model="user.name" /><br />
-  LastName: <input type="text" ng-model="user.last" /><br />
-  Chat: <input type="text" ng-model="user.chat" /><br />
 
-  <input type="submit" ng-click="update(user)" value="Save" />
-</form>
+<div class="row">
+  <div class="column" id="col1">
+    <form novalidate class="simple-form">
+      Username: <input type="text" ng-model="user.username" /><br />
+      Password: <input type="password" ng-model="user.password" /><br />
+      <input type="submit" ng-click="login(user)" value="Login" />
+    </form>
+  </div>
+  <div class="column" id="col2">
+    <form novalidate class="simple-form">
+      Name: <input type="text" ng-model="user.name" /><br />
+      Username: <input type="text" ng-model="user.username" /><br />
+      Email: <input type="text" ng-model="user.email" /><br />
+      Password: <input type="password" ng-model="user.password" /><br />
+      <input type="submit" ng-click="register(user)" value="Register" />
+    </form>
+  </div>
+</div>
+
+<div id="err"></div>
 <ul>
+<p>All registered users: </p>
 <li ng-repeat='line in chats'>
-{{line.from}} - {{line.body}} - {{line.last}}
+{{line.name}} - {{line.username}} - {{line.password}} - {{line.email}} 
 </li>
 </ul>
 </div>
 
 </body>
 </html>
-
