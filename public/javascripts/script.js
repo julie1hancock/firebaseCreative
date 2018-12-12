@@ -42,7 +42,7 @@ myApp.controller("chatController", ["$scope", "$firebaseArray",
      });
    
      angular.element(document.querySelector("#err")).html(message);
-     
+    
      if(!badreq){
        var newmessage = {name:user.name, username:user.username, password:user.password, email:user.email};
        $scope.chats.$add(newmessage);
