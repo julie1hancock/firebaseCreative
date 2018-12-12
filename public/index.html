@@ -62,7 +62,7 @@ div{
 
 <body>
 
-<div ng-controller="chatController">
+<div id="first" ng-controller="chatController">
 
 <div class="row">
   <div class="column" id="col1">
@@ -83,14 +83,20 @@ div{
   </div>
 </div>
 
+
+
+
 <div id="err"></div>
-<ul>
-<p>All registered users: </p>
-<li ng-repeat='line in chats'>
-{{line.name}} - {{line.username}} - {{line.password}} - {{line.email}} 
-</li>
-</ul>
+
+
+  <ul>
+    <p>All registered users: </p>
+    <li ng-repeat='line in chats'> {{line.name}} - {{line.username}} - {{line.password}} - {{line.email}} </li>
+  </ul>
 </div>
+
+
+<div id="second"></div>
 
 </body>
 </html>
